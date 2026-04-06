@@ -1,5 +1,20 @@
 const VERSION: &str = env!("CARGO_PKG_VERSION");
-const PI: f64 = 3.141592653589793;
+// const PI: f64 = 3.141592653589793;
+const PI: f64 = std::f64::consts::PI;
+
+fn main() {
+    print_msg();
+    human_id("Gaurav", 30, 186.0);
+
+    let x: i32 = {
+        let price: i32 = 5;
+        let quantity: i32 = 9;
+        price * quantity
+    };
+
+    println!("Value of X is {}!", x);
+    println!("Area of circle with radius {} is {}", 7, area_of_circle(7.0));
+}
 
 fn datatypes() {
     println!("Hello, world!");
@@ -70,28 +85,18 @@ fn datatypes() {
 
 }
 
-fn main() {
-    print_msg();
-    human_id("Gaurav", 30, 186.0);
-
-    let x: i32 = {
-        let price: i32 = 5;
-        let quantity: i32 = 9;
-        price * quantity
-    };
-
-    println!("Value of X is {}!", x);
-    println!("Area of circle with radius {} is {}", 7, area_of_circle(7.0));
-}
-
+// function as defined by using keyword fn
+// all the function and variables must be written in snake_case, not even camelCase
 fn print_msg() {
     println!("Hello, world!");
 }
 
+// function with parameters
 fn human_id(name: &str, age: i32, height: f32) {
     println!("{} is {} years old with height {} cm", name, age, height);
 }
 
+// function with return type
 fn area_of_circle(radius: f64) -> f32 {
     (radius * PI) as f32
 }
